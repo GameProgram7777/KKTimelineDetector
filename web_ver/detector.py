@@ -6,19 +6,18 @@ class TimelineDetector:
     def __init__(self):
         self.file_content = None
         
-    def is_scene_data(self, content_str: str) -> bool:
+    def is_scene_data(self, content: bytes) -> bool:
         """檢查是否為scene data"""
         try:
-            return b"KStudio" in content_str
-        except:
+            return b"KStudio" in content
+        except Exception:
             return False
-        
-    def check_timeline(self, content) -> tuple[str, str, float]:
+
+    def check_timeline(self, content: bytes) -> tuple[str, str, float]:
         """
         檢查timeline類型並返回timeline狀態和duration
         """
         try:
-            content_str = str(content)
             if b"timeline" in content:  # 先檢查是否有timeline
                 # 檢查是否為static (沒有Timeline就是static)
                 if b"Timeline" not in content:
@@ -76,17 +75,7 @@ def process_file(event):
             if not first_file.type:
                 window.alert("Please do not upload folders. upload only one file at a time.")
                 return
-            
-            # if not hasattr(first_file, 'type') or not first_file.type:  # 沒有 type 或 type 為空
-            #     if hasattr(first_file, 'webkitRelativePath') and first_file.webkitRelativePath:
-            #         # 通過 webkitRelativePath 判斷是否為資料夾
-            #         if '/' in first_file.webkitRelativePath:
-            #             window.alert("Folder detected. Please upload individual files.")
-            #             return
-            #     else:
-            #         window.alert("File type or path indicates a folder. Please do not upload folders.")
-            #         return
-                
+
             # 1.2 檢查檔案數量
             if files.length > 1:
                 window.alert("Please upload only one file at a time.")

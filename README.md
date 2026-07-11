@@ -7,14 +7,14 @@ A tool for detecting whether scene data in Koikatsu (or Koikatsu Sunshine) conta
 ### Desktop Version (exe_ver)
 A standalone Python application built with tkinter, providing a desktop interface for timeline detection.
 
-Download the latest release [here](https://github.com/GameProgram777/KKTimelineDetector/releases)
+Download the latest release [here](https://github.com/GameProgram7777/KKTimelineDetector/releases)
 
 
 ### Web Version (web_ver)
 A web-based version built with PyScript, providing the same functionality through a browser interface.
 
 #### Live Demo
-Access the web version here: https://GameProgram777.github.io/KKTimelineDetector/web_ver/
+Access the web version here: https://GameProgram7777.github.io/KKTimelineDetector/web_ver/
 
 ## Features
 - Detects presence of timeline in scene data files
